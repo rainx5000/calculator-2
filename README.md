@@ -28,4 +28,16 @@ ________________________________________________________________________________
 
 7 - You should save the first input to a variable, and save the operator the user clicks, and then we use operate() on them when the uses presses =
 
-8 - 
+
+_____________________________________________________________________________________________________________
+My planning:
+
+the eqaul button should run only if we have 2 numbers and an operator
+
+the equal button on click would run the operate() function, in which it would take 2 numbers and an operator to compute
+
+
+
+When I click on 7 it will change the value of x to 7, it will keep adding more numbers to it as long as I didnt click onto an operator
+
+Once the operator is click, the number thereafter will change y, and only once we click equal will it compute
