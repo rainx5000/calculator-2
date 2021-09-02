@@ -1,6 +1,7 @@
 const equal = document.querySelector(".equal");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const display = document.querySelector(".display-container");
 
 
 const data = {
@@ -19,14 +20,18 @@ operators.forEach(operator => {
 numbers.forEach(numberBtn => numberBtn.addEventListener("click", (e) => {
   if (!data.operator) {
     data.x += e.target.value;
+    display.textContent = data.x;
   } else {
     data.y += e.target.value;
+    display.textContent = data.y;
   }
 }))
 
 equal.addEventListener("click", (e) => {
   if (data.x && data.y && data.operator) {
-    operate(data.x, data.y, data.operator)
+    let result = operate(data.x, data.y, data.operator);
+    display.textContent = result;
+
   }
 })
 
