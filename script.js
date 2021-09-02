@@ -11,7 +11,14 @@ const data = {
 };
 operators.forEach(operator => {
   operator.addEventListener("click", (e) => {
-    if (data.x) {
+    if (data.x && data.y) {
+      let result = operate(data.x, data.y, data.operator);
+      display.textContent = result;
+      data.x = result;
+      data.y = '';
+      data.operator = e.target.value;
+      
+    } else if (data.x) {
       data.operator = e.target.value;
     }
   })
@@ -31,9 +38,17 @@ equal.addEventListener("click", (e) => {
   if (data.x && data.y && data.operator) {
     let result = operate(data.x, data.y, data.operator);
     display.textContent = result;
+    resetCalculator();
 
   }
 })
+
+
+function resetCalculator () {
+  data.x = '';
+  data.y = '';
+  data.operator = '';
+}
 
 
 
