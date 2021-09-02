@@ -2,6 +2,8 @@ const equal = document.querySelector(".equal");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const display = document.querySelector(".display-container");
+const clearBtn = document.querySelector(".clear");
+const inverseBtn = document.querySelector(".btn-plus-minus");
 
 
 const data = {
@@ -9,6 +11,7 @@ const data = {
   y: '',
   operator: ''
 };
+
 operators.forEach(operator => {
   operator.addEventListener("click", (e) => {
     if (data.x && data.y) {
@@ -43,15 +46,36 @@ equal.addEventListener("click", (e) => {
   }
 })
 
+clearBtn.addEventListener("click", (e) => {
+  display.textContent = 0;
+  resetCalculator();
+})
+
+inverseBtn.addEventListener("click", (e) => {
+  if (data.y) {
+    if (data.y.includes("-")) {
+      data.y = data.y.slice(1);
+      display.textContent = data.y
+      return;
+    }
+    data.y = "-" + data.y;
+    display.textContent = data.y
+  } else if (data.x) {
+    if (data.x.includes("-")) {
+      data.x = data.x.slice(1);
+      display.textContent = data.x
+      return
+    }
+    data.x = "-" + data.x;
+    display.textContent = data.x
+  }
+})
 
 function resetCalculator () {
   data.x = '';
   data.y = '';
   data.operator = '';
 }
-
-
-
 
 
 add = (x,y) => Number(x) + Number(y);
