@@ -1,0 +1,76 @@
+#calculator {
+  width: 400px;
+  height: 600px;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.controls-container {
+  display: grid;
+  grid-template-areas:
+  "number-7 number-8 number-9 plus-minus backspace"
+  "number-4 number-5 number-6 multiply divide"
+  "number-1 number-2 number-3 subtract equal"
+  "clear number-0 decimal add equal";
+  height: 50%;
+  font-size: 2rem;
+}
+
+.btn-plus-minus {
+  grid-area: plus-minus;
+}
+.btn-backspace {
+  grid-area: backspace;
+}
+.divide {
+  grid-area: divide;
+}
+.multiply {
+  grid-area: multiply;
+}
+.subtract {
+  grid-area: subtract;
+}
+.add {
+  grid-area: add;
+}
+.decimal {
+  grid-area: decimal;
+}
+.equal {
+  grid-area: equal;
+}
+
+
+.btn-0 {
+  grid-area: number-0;
+}
+.btn-1 {
+  grid-area: number-1;
+}
+.btn-2 {
+  grid-area: number-2;
+}
+.btn-3 {
+  grid-area: number-3;
+}
+.btn-4 {
+  grid-area: number-4;
+}
+.btn-5 {
+  grid-area: number-5;
+}
+.btn-6 {
+  grid-area: number-6;
+}
+.btn-7 {
+  grid-area: number-7;
+}
+.btn-8 {
+  grid-area: number-8;
+}
+.btn-9 {
+  grid-area: number-9;
+}

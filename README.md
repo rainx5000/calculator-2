@@ -5,7 +5,7 @@ add a display for all the operations and result
 
 add/subtract
 divide/multiply
-clear/clear all button
+clear button
 +/- button to turn number to opposite 76 ====> -76
 decimal button to add a decimal onto a number
 backspace to delete last number inputed incase the user inputed the wrong number
