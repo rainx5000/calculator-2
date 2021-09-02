@@ -7,6 +7,17 @@
   justify-content: space-between;
 }
 
+.display-container {
+  height: fit-content;
+  padding: 10% 5%;
+  width: 80%;
+  font-size: 2.5em;
+  margin: auto;
+  text-align: end;
+  vertical-align: center;
+  background-color: rgb(207, 206, 206);
+}
+
 .controls-container {
   display: grid;
   grid-template-areas:
@@ -14,7 +25,7 @@
   "number-4 number-5 number-6 multiply divide"
   "number-1 number-2 number-3 subtract equal"
   "clear number-0 decimal add equal";
-  height: 50%;
+  height: 70%;
   font-size: 2rem;
 }
 
