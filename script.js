@@ -20,9 +20,8 @@ operators.forEach(operator => {
       data.x = result;
       data.y = '';
       data.operator = e.target.value;
-      
     } else if (data.x) {
-      data.operator = e.target.value;
+        data.operator = e.target.value;
     }
   })
 })
@@ -32,8 +31,8 @@ numbers.forEach(numberBtn => numberBtn.addEventListener("click", (e) => {
     data.x += e.target.value;
     updateDisplay(data.x)
   } else {
-    data.y += e.target.value;
-    updateDisplay(data.y)
+      data.y += e.target.value;
+      updateDisplay(data.y)
   }
 }))
 
@@ -81,14 +80,18 @@ function resetCalculator () {
 add = (x,y) => Number(x) + Number(y);
 subtract = (x,y) => Number(x) - Number(y);
 multiply = (x,y) => x * y;
-divide = (x,y) => x / y;
+divide = (x,y) => {
+  if (isNaN(x/y)) {
+    return "undefined"
+  };
+  return x / y
+};
 
 function operate (x, y, operatorStr) {
   operator = eval(operatorStr);
   console.log(operator(x,y))
   return operator(x,y);
 }
-
 
 function getCurrent() {
   return data.y || data.operator ? 'y' : 'x';
