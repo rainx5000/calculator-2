@@ -41,7 +41,6 @@ equal.addEventListener("click", (e) => {
     let result = operate(data.x, data.y, data.operator);
     updateDisplay(result);
     resetCalculator();
-
   }
 })
 

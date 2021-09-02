@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;700&display=swap');
+body {
+  box-sizing: border-box;
+  background: rgb(43, 42, 42);
+  font-family: 'Bitter', serif;
+  font-weight: 700;
+}
+
 #calculator {
   width: 400px;
   height: 600px;
+  margin: auto;
+  margin-top: 5%;
   background-color: grey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(155, 155, 245);
+  box-shadow: 0px 0px 2px 2px rgb(156, 156, 177);
 }
 
 .display-container {
+  font-family: 'Orbitron', sans-serif;
   height: fit-content;
   padding: 10% 5%;
   width: 80%;
@@ -15,7 +31,8 @@
   margin: auto;
   text-align: end;
   vertical-align: center;
-  background-color: rgb(207, 206, 206);
+  background-color: rgb(81, 136, 187);
+  border-radius: 10px;
 }
 
 .controls-container {
@@ -25,8 +42,25 @@
   "number-4 number-5 number-6 multiply divide"
   "number-1 number-2 number-3 subtract equal"
   "clear number-0 decimal add equal";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 70%;
   font-size: 2rem;
+
+}
+button {
+  background: rgb(173, 238, 173);
+  margin: 6px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 1px rgb(108, 108, 248);
+}
+.number {
+  background-color: rgb(226, 204, 144);
 }
 
 .btn-plus-minus {
@@ -49,9 +83,15 @@
 }
 .decimal {
   grid-area: decimal;
+  background-color: rgb(228, 163, 120);
 }
 .equal {
   grid-area: equal;
+  background-color: rgb(121, 179, 218);
+}
+.clear {
+  grid-area: clear;
+  background-color: #a64452;
 }
 
 
