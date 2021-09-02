@@ -41,3 +41,10 @@ the equal button on click would run the operate() function, in which it would ta
 When I click on 7 it will change the value of x to 7, it will keep adding more numbers to it as long as I didnt click onto an operator
 
 Once the operator is click, the number thereafter will change y, and only once we click equal will it compute
+
+
+
+create a function that would figure out which input x or y is currently being edited
+getCurrent()
+
+

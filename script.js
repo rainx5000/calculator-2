@@ -4,7 +4,7 @@ const operators = document.querySelectorAll(".operator");
 const display = document.querySelector(".display-container");
 const clearBtn = document.querySelector(".clear");
 const inverseBtn = document.querySelector(".btn-plus-minus");
-
+const backspaceBtn = document.querySelector(".btn-backspace");
 
 const data = {
   x: '',
@@ -16,7 +16,7 @@ operators.forEach(operator => {
   operator.addEventListener("click", (e) => {
     if (data.x && data.y) {
       let result = operate(data.x, data.y, data.operator);
-      display.textContent = result;
+      updateDisplay(result);
       data.x = result;
       data.y = '';
       data.operator = e.target.value;
@@ -30,53 +30,53 @@ operators.forEach(operator => {
 numbers.forEach(numberBtn => numberBtn.addEventListener("click", (e) => {
   if (!data.operator) {
     data.x += e.target.value;
-    display.textContent = data.x;
+    updateDisplay(data.x)
   } else {
     data.y += e.target.value;
-    display.textContent = data.y;
+    updateDisplay(data.y)
   }
 }))
 
 equal.addEventListener("click", (e) => {
   if (data.x && data.y && data.operator) {
     let result = operate(data.x, data.y, data.operator);
-    display.textContent = result;
+    updateDisplay(result);
     resetCalculator();
 
   }
 })
 
 clearBtn.addEventListener("click", (e) => {
-  display.textContent = 0;
+  updateDisplay(0);
   resetCalculator();
 })
 
 inverseBtn.addEventListener("click", (e) => {
-  if (data.y) {
-    if (data.y.includes("-")) {
-      data.y = data.y.slice(1);
-      display.textContent = data.y
+  if (data[getCurrent()]) {
+    if (data[getCurrent()].includes("-")) {
+      data[getCurrent()] = data[getCurrent()].slice(1);
+      updateDisplay(data[getCurrent()])
       return;
     }
-    data.y = "-" + data.y;
-    display.textContent = data.y
-  } else if (data.x) {
-    if (data.x.includes("-")) {
-      data.x = data.x.slice(1);
-      display.textContent = data.x
-      return
-    }
-    data.x = "-" + data.x;
-    display.textContent = data.x
+    data[getCurrent()] = "-" + data[getCurrent()];
+    updateDisplay(data[getCurrent()])
   }
 })
+
+backspaceBtn.addEventListener("click", (e) => {
+  data[getCurrent()] = data[getCurrent()].substring(0, data[getCurrent()].length-1);
+  updateDisplay(data[getCurrent()])
+})
+
+function updateDisplay(value) {
+  display.textContent = value || 0;
+}
 
 function resetCalculator () {
   data.x = '';
   data.y = '';
   data.operator = '';
 }
-
 
 add = (x,y) => Number(x) + Number(y);
 subtract = (x,y) => Number(x) - Number(y);
@@ -87,4 +87,9 @@ function operate (x, y, operatorStr) {
   operator = eval(operatorStr);
   console.log(operator(x,y))
   return operator(x,y);
+}
+
+
+function getCurrent() {
+  return data.y || data.operator ? 'y' : 'x';
 }
